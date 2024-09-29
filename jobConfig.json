@@ -1,0 +1,37 @@
+{
+  "config": {
+    "dashboard": {
+      "port": 9090
+    }
+  },
+  "residentTask": [
+    {
+      "jobName": "thh",
+      "binPath": "thh",
+      "params": [
+        "serve"
+      ],
+      "options": {
+        "outputType": 1,
+        "outputPath": "./tmp"
+      },
+      "dir": "D:\\workspace\\shy",
+      "run": true
+    }
+  ],
+  "scheduledTask": [
+    {
+      "jobName": "kuai",
+      "binPath": "kuai",
+      "params": [
+        "now"
+      ],
+      "options": {
+        "outputType": 1,
+        "outputPath": "./tmp"
+      },
+      "spec": "* * * * *",
+      "run": true
+    }
+  ]
+}
