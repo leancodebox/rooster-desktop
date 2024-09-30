@@ -4,7 +4,7 @@ go 1.23.1
 
 require (
 	fyne.io/fyne/v2 v2.5.1
-	github.com/leancodebox/rooster v0.0.2
+	github.com/leancodebox/rooster v0.0.4
 )
 
 require (
