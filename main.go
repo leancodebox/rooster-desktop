@@ -37,12 +37,13 @@ func main() {
 	// 桌面系统设置托盘
 	if desk, ok := a.(desktop.App); ok {
 		var list []*fyne.MenuItem
-		list = append(list, fyne.NewMenuItem("关于", func() {
+		open := fyne.NewMenuItem("打开管理", func() {
 			err := openURL(url)
 			if err != nil {
 				fmt.Println(err)
 			}
-		}))
+		})
+		list = append(list, open)
 		if serverErr != nil {
 			list = append(list, fyne.NewMenuItem(serverErr.Error(), func() {
 				err := openURL(url)
