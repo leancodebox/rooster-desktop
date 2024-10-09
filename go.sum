@@ -283,6 +283,8 @@ github.com/leancodebox/rooster v0.0.7 h1:0dRIUK+bhM51IFK1ZIvWI9+WNCgUMoiMkdIxo2a
 github.com/leancodebox/rooster v0.0.7/go.mod h1:itwCte4PtDMqdyF2RDUh1Mps/msTrxYCLe/mQlVkysI=
 github.com/leancodebox/rooster v0.0.8 h1:Qt0y4/mNQpFw4Z0+t3fNZAGAUDv+RPWdiqBJBJ0kXe0=
 github.com/leancodebox/rooster v0.0.8/go.mod h1:itwCte4PtDMqdyF2RDUh1Mps/msTrxYCLe/mQlVkysI=
+github.com/leancodebox/rooster v0.0.9 h1:DCzs3o02sZWDJvhpNCxrNCDALswGTb68KQ7VywVVKFs=
+github.com/leancodebox/rooster v0.0.9/go.mod h1:itwCte4PtDMqdyF2RDUh1Mps/msTrxYCLe/mQlVkysI=
 github.com/leancodebox/rooster v0.0.13 h1:HRGw7BU618n1RkZIvEAJx/ZiGmfm9DrL7JvaBujG4qU=
 github.com/leancodebox/rooster v0.0.13/go.mod h1:IzCBAPXYcoGau9os3BrJfR9Ak12QZXmjVsWGzgp88eE=
 github.com/leodido/go-urn v1.2.4 h1:XlAE/cm/ms7TE/VMVoduSpNBoyc2dOxHs5MZSwAN63Q=
