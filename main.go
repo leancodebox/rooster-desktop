@@ -9,7 +9,10 @@ import (
 	"github.com/leancodebox/rooster/jobmanager"
 	"github.com/leancodebox/rooster/jobmanagerserver"
 	"log"
+	"log/slog"
+	"os"
 	"os/exec"
+	"path"
 	"runtime"
 )
 
@@ -34,6 +37,19 @@ func main() {
 	logLifecycle(a)
 	a.SetIcon(resource.GetLogo())
 	serverErr := startRoosterServer()
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		slog.Error("获取家目录失败", "err", err)
+		homeDir = "tmp"
+	}
+	runLogPath := path.Join(homeDir, ".roosterTaskConfig", "run.log")
+	logOut, err := os.OpenFile(runLogPath, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		slog.Info("Failed to log to file, using default stderr", "err", err)
+	}
+	slog.SetDefault(slog.New(slog.NewJSONHandler(logOut, &slog.HandlerOptions{
+		AddSource: true,
+	})))
 	// 桌面系统设置托盘
 	if desk, ok := a.(desktop.App); ok {
 		var list []*fyne.MenuItem
