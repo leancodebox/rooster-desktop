@@ -2,32 +2,33 @@ package main
 
 import (
 	"fmt"
-	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/driver/desktop"
-	"github.com/leancodebox/rooster-desktop/resource"
-	"github.com/leancodebox/rooster/jobmanager"
-	"github.com/leancodebox/rooster/jobmanagerserver"
-	"log"
 	"log/slog"
 	"os"
 	"os/exec"
 	"path"
 	"runtime"
+
+	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
+	"fyne.io/fyne/v2/driver/desktop"
+	"fyne.io/fyne/v2/theme"
+	"github.com/leancodebox/rooster-desktop/resource"
+	"github.com/leancodebox/rooster/jobmanager"
+	"github.com/leancodebox/rooster/jobmanagerserver"
 )
 
 func logLifecycle(a fyne.App) {
 	a.Lifecycle().SetOnStarted(func() {
-		log.Println("Lifecycle: Started")
+		slog.Info("Lifecycle: Started")
 	})
 	a.Lifecycle().SetOnStopped(func() {
 		stop()
 	})
 	a.Lifecycle().SetOnEnteredForeground(func() {
-		log.Println("Lifecycle: Entered Foreground")
+		slog.Info("Lifecycle: Entered Foreground")
 	})
 	a.Lifecycle().SetOnExitedForeground(func() {
-		log.Println("Lifecycle: Exited Foreground")
+		slog.Info("Lifecycle: Exited Foreground")
 	})
 }
 
@@ -73,10 +74,12 @@ func main() {
 				fmt.Println(err)
 			}
 		}
+		desk.SetSystemTrayIcon(theme.ListIcon())
 
-		m := fyne.NewMenu("cock-desktop",
+		m := fyne.NewMenu("rooster-desktop",
 			list...,
 		)
+
 		desk.SetSystemTrayMenu(m)
 	}
 	a.Run()
